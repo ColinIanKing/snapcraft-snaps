@@ -1,0 +1,55 @@
+#
+# Copyright (C) 2017 Canonical
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+#
+name: realtime-tests
+version: 1.0
+summary: Suite of real-time tests
+description: real-time tests cyclictest, pip_stress, pi_stress, pmqtest, ptsematest, rt-migrate-test, sendme, signaltest, sigwaittest, svsematest
+confinement: strict
+grade: stable
+apps:
+    cyclictest:
+        command: usr/local/bin/cyclictest
+    pip-stress:
+        command: usr/local/bin/pip_stress
+    pi-stress:
+        command: usr/local/bin/pi_stress
+    pmqtest:
+        command: usr/local/bin/pmqtest
+    ptsematest:
+        command: usr/local/bin/ptsematest
+    rt-migrate-test:
+        command: usr/local/bin/rt-migrate-test
+    sendme:
+        command: usr/local/bin/sendme
+    signaltest:
+        command: usr/local/bin/signaltest
+    sigwaittest:
+        command: usr/local/bin/sigwaittest
+    svsematest:
+        command: usr/local/bin/svsematest
+parts:
+    realtime-tests:
+        plugin: make
+        source: git://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git
+        source-branch: v1.0
+        build-packages:
+            - build-essential
+            - libnuma-dev
+            - python3
+
+# vim: set ai et sts=4 tabstop=4 sw=4:
