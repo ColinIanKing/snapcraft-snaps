@@ -51,5 +51,17 @@ parts:
             - build-essential
             - libnuma-dev
             - python3
+        prime:
+            - usr/local/bin/cyclictest
+            - usr/local/bin/hackbench
+            - usr/local/bin/pip_stress
+            - usr/local/bin/pi_stress
+            - usr/local/bin/pmqtest
+            - usr/local/bin/ptsematest
+            - usr/local/bin/rt-migrate-test
+            - usr/local/bin/sendme
+            - usr/local/bin/signaltest
+            - usr/local/bin/sigwaittest
+            - usr/local/bin/svsematest
 
 # vim: set ai et sts=4 tabstop=4 sw=4:
