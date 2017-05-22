@@ -1,5 +1,5 @@
 name: acpi-tools
-version: 20170522-R12-22-16-13352-c3f798b7b
+version: 20170522-122216-13352-c3f798b
 summary: ACPICA tools
 description: ACPICA tools, including ACPI compiler and disassembler (iasl), Simulator/Executor (acpiexec), ACPI table dump (acpidump), acpi table extractor (acpixtract) and ACPI help (acpihelp)
 
@@ -14,6 +14,8 @@ parts:
         build-packages:
             - gcc
             - make
+            - bison
+            - flex
 
         prime:
             - usr/bin/
