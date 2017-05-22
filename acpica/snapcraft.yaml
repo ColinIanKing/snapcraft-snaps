@@ -1,0 +1,49 @@
+name: acpi-tools
+version: 20170522-R12-22-16-13352-c3f798b7b
+summary: ACPICA tools
+description: ACPICA tools, including ACPI compiler and disassembler (iasl), Simulator/Executor (acpiexec), ACPI table dump (acpidump), acpi table extractor (acpixtract) and ACPI help (acpihelp)
+
+confinement: strict
+grade: stable
+
+parts:
+    acpi-tools:
+        plugin: make
+        source: https://github.com/acpica/acpica.git
+
+        build-packages:
+            - gcc
+            - make
+
+        prime:
+            - usr/bin/
+
+apps:
+    acpibin:
+        plugs: [home]
+        command: usr/bin/acpibin
+    acpidump:
+        plugs: [home]
+        command: usr/bin/acpidump
+    acpiexamples:
+        plugs: [home]
+        command: usr/bin/acpiexamples
+    acpiexec:
+        plugs: [home]
+        command: usr/bin/acpiexec
+    acpihelp:
+        plugs: [home]
+        command: usr/bin/acpihelp
+    acpinames:
+        plugs: [home]
+        command: usr/bin/acpinames
+    acpisrc:
+        plugs: [home]
+        command: usr/bin/acpisrc
+    acpixtract:
+        plugs: [home]
+        command: usr/bin/acpixtract
+    iasl:
+        plugs: [home]
+        command: usr/bin/iasl
+
