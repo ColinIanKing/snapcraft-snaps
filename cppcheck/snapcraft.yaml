@@ -1,5 +1,5 @@
 name: cppcheck
-version: 1.76.1-20161118-15464-e94407f
+version: 1.79-20170522-16169-b59bd96c6
 summary: A tool for static C/C++ code analysis
 description: Cppcheck is a static analysis tool for C/C++ code. Unlike C/C++ compilers and many other analysis tools it does not detect syntax errors in the code. Cppcheck primarily detects the types of bugs that the compilers normally do not detect.
 confinement: strict
@@ -9,15 +9,25 @@ parts:
         plugin: make
         source: git://github.com/danmar/cppcheck
         make-parameters:
-            - CFGDIR=/usr/share/cppcheck/cfg
+            - CFGDIR=/snap/cppcheck/current/var/snap/cppcheck/common/
+
         build-packages:
             - gcc
             - make
-        snap:
-            - usr/bin/cppcheck
+
+        prime:
+            - usr/bin/
+
+    cfg:
+        plugin: dump
+        source: cppcheck/cfg
+        organize:
+           '*': var/snap/cppcheck/common/
+
+        prime:
+            - var/snap/cppcheck/common/*
 
 apps:
     cppcheck:
         plugs: [home]
         command: usr/bin/cppcheck
-
