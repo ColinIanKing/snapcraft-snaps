@@ -1,0 +1,32 @@
+name: psst
+version: 0
+summary: power stress and shaping tool
+description: Power Stress and Shaping Tool (PSST) is a controlled power tool for Intel SoC components such as CPU and GPU. PSST enables very fine control of stress function without its own process overhead 
+
+confinement: strict
+grade: stable
+
+parts:
+    psst:
+        plugin: make
+        source: https://01.org/sites/default/files/downloads/power-stress-and-shaping-tool/psst-v0.1.tar.gz
+
+        build-packages:
+            - gcc
+            - make
+
+        prime:
+            - usr/bin/
+
+        build:
+            CFLAGS=-static make
+
+        install: |
+            mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
+            cp psst $SNAPCRAFT_PART_INSTALL/usr/bin
+
+apps:
+    psst:
+        plugs: [home]
+        command: usr/bin/psst
+
