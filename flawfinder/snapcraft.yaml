@@ -1,5 +1,5 @@
 name: flawfinder-static-analyzer
-version: 2.0.6-1
+version: 2.0.6-2
 summary: C static analyzer tool
 description: flawfinder is a tool to statically analyze C source code
 confinement: strict
@@ -13,5 +13,5 @@ parts:
         plugin: python
 apps:
     flawfinder:
-        plugs: [desktop]
+        plugs: [home]
         command: bin/flawfinder
