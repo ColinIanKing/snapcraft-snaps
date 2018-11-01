@@ -1,17 +1,17 @@
 name: flawfinder-static-analyzer
-version: 2.0.4
+version: 2.0.6-1
 summary: C static analyzer tool
 description: flawfinder is a tool to statically analyze C source code
 confinement: strict
+grade: stable
 
 parts:
     flawfinder:
         plugin: make
-        source: https://www.dwheeler.com/flawfinder/flawfinder-2.0.4.tar.gz
+        source: https://www.dwheeler.com/flawfinder/flawfinder-2.0.6.tar.gz
         source-type: tar
         plugin: python
 apps:
     flawfinder:
+        plugs: [desktop]
         command: bin/flawfinder
-        aliases: [flawfinder]
-
