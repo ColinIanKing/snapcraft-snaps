@@ -1,5 +1,5 @@
 name: acpi-tools
-version: 20170522-122216-13352-c3f798b
+version: 0
 summary: ACPICA tools
 description: ACPICA tools, including ACPI compiler and disassembler (iasl), Simulator/Executor (acpiexec), ACPI table dump (acpidump), acpi table extractor (acpixtract) and ACPI help (acpihelp)
 
@@ -25,7 +25,7 @@ apps:
         plugs: [home]
         command: usr/bin/acpibin
     acpidump:
-        plugs: [home]
+        plugs: [home, hardware-observe]
         command: usr/bin/acpidump
     acpiexamples:
         plugs: [home]
