@@ -30,7 +30,7 @@ parts:
             - libclang1-6.0
             - libllvm6.0
             - llvm-6.0
-            - llvm-5.0-dev
+            - llvm-6.0-dev
             - llvm-6.0-runtime
 
         stage-packages:
