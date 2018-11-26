@@ -8,7 +8,7 @@ grade: stable
 parts:
     cppcheck:
         plugin: make
-        source: git://github.com/danmar/cppcheck
+        source: https://github.com/danmar/cppcheck.git
         make-parameters:
             - CFGDIR=/snap/cppcheck/current/var/snap/cppcheck/common/
 
