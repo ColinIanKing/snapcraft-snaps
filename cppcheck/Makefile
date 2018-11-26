@@ -5,7 +5,7 @@ get_repo:
 	@(if [ -d cppcheck ]; then \
 		cd cppcheck; git pull; cd .. ; \
 	else \
-		git clone git://github.com/danmar/cppcheck;  \
+		git clone https://github.com/danmar/cppcheck.git;  \
 	fi; > /dev/null) 2>&1 > /dev/null
 
 get_version: get_repo
