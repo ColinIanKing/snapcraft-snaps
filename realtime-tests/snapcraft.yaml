@@ -16,7 +16,7 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 #
 name: realtime-tests
-version: 1.0
+version: 1.3
 summary: Suite of real-time tests
 description: real-time tests cyclictest, pip_stress, pi_stress, pmqtest, ptsematest, rt-migrate-test, sendme, signaltest, sigwaittest, svsematest
 confinement: strict
@@ -45,8 +45,8 @@ apps:
 parts:
     realtime-tests:
         plugin: make
-        source: git://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git
-        source-branch: v1.0
+        source: https://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git
+        source-branch: v1.3
         build-packages:
             - build-essential
             - libnuma-dev
