@@ -32,6 +32,7 @@ parts:
             - llvm-6.0
             - llvm-6.0-dev
             - llvm-6.0-runtime
+            - libbpfcc-dev
 
         stage-packages:
             - libelf-dev
