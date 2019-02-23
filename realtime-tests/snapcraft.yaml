@@ -24,24 +24,34 @@ grade: stable
 apps:
     cyclictest:
         command: usr/local/bin/cyclictest
+        plugs: [ process-control ]
     pip-stress:
         command: usr/local/bin/pip_stress
+        plugs: [ process-control ]
     pi-stress:
         command: usr/local/bin/pi_stress
+        plugs: [ process-control ]
     pmqtest:
         command: usr/local/bin/pmqtest
+        plugs: [ process-control ]
     ptsematest:
         command: usr/local/bin/ptsematest
+        plugs: [ process-control ]
     rt-migrate-test:
         command: usr/local/bin/rt-migrate-test
+        plugs: [ process-control ]
     sendme:
         command: usr/local/bin/sendme
+        plugs: [ process-control ]
     signaltest:
         command: usr/local/bin/signaltest
+        plugs: [ process-control ]
     sigwaittest:
         command: usr/local/bin/sigwaittest
+        plugs: [ process-control ]
     svsematest:
         command: usr/local/bin/svsematest
+        plugs: [ process-control ]
 parts:
     realtime-tests:
         plugin: make

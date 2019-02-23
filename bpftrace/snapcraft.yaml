@@ -1,5 +1,5 @@
 name: bpftrace
-version: 0-20181118-0024
+version: 0-20181211-70c9c12db1
 summary: high-level tracing language for Linux eBPF
 description: 'BPFtrace is a high-level tracing language for Linux enhanced Berkeley Packet Filter available in recent Linux kernels. BPFtrace uses LLVM as a backend to compile scripts to BPF-bytecode and makes use of BCC for interacting with the Linux BPF system, as well as existing Linux tracing capabilities: kernel dynamic tracing, user-level dynamic tracing and tracepoints.'
 
@@ -41,6 +41,7 @@ parts:
             - libtinfo-dev
             - libclang1-6.0
             - zlib1g
+            - libbpfcc-dev
 
         prime:
             - bin/
