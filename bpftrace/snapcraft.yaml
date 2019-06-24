@@ -1,10 +1,17 @@
 name: bpftrace
-version: 0-20181211-70c9c12db1
+version: 0.9-20192406-ba3c1b0adc2d
 summary: high-level tracing language for Linux eBPF
 description: 'BPFtrace is a high-level tracing language for Linux enhanced Berkeley Packet Filter available in recent Linux kernels. BPFtrace uses LLVM as a backend to compile scripts to BPF-bytecode and makes use of BCC for interacting with the Linux BPF system, as well as existing Linux tracing capabilities: kernel dynamic tracing, user-level dynamic tracing and tracepoints.'
 
 confinement: strict
 grade: stable
+
+apps:
+    bpftrace:
+        plugs: [ home, system-trace ]
+        command: bin/bpftrace-wrapper.sh
+        environment:
+            LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/lib/x86-64-linux-gnu:$SNAP/usr/lib/x86-64-linux-gnu:$SNAP/usr/lib/gcc/x86_64-linux-gnu/6
 
 parts:
     bpftrace:
@@ -49,10 +56,9 @@ parts:
             - lib/
             - usr/
 
-apps:
-    bpftrace:
-        command: bpftrace
-        plugs: [ system-trace ]
-        environment:
-            LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/lib/x86-64-linux-gnu:$SNAP/usr/lib/x86-64-linux-gnu:$SNAP/usr/lib/gcc/x86_64-linux-gnu/6
-
+    wrapper:
+        plugin: dump
+        after: [bpftrace]
+        source: .
+        organize:
+            bpftrace-wrapper.sh: bin/bpftrace-wrapper.sh
