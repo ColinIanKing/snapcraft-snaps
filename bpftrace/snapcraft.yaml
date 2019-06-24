@@ -6,13 +6,6 @@ description: 'BPFtrace is a high-level tracing language for Linux enhanced Berke
 confinement: strict
 grade: stable
 
-apps:
-    bpftrace:
-        plugs: [ home, system-trace ]
-        command: bin/bpftrace-wrapper.sh
-        environment:
-            LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/lib/x86-64-linux-gnu:$SNAP/usr/lib/x86-64-linux-gnu:$SNAP/usr/lib/gcc/x86_64-linux-gnu/6
-
 parts:
     bpftrace:
         plugin: cmake
@@ -56,9 +49,10 @@ parts:
             - lib/
             - usr/
 
-    wrapper:
-        plugin: dump
-        after: [bpftrace]
-        source: .
-        organize:
-            bpftrace-wrapper.sh: bin/bpftrace-wrapper.sh
+apps:
+    bpftrace:
+        command: bpftrace
+        plugs: [ home, system-trace ]
+        environment:
+            LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/lib/x86-64-linux-gnu:$SNAP/usr/lib/x86-64-linux-gnu:$SNAP/usr/lib/gcc/x86_64-linux-gnu/6
+
