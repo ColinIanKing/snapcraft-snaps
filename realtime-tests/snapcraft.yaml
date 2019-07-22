@@ -16,14 +16,20 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 #
 name: realtime-tests
-version: 1.3
+version: 1.4
 summary: Suite of real-time tests
-description: real-time tests cyclictest, pip_stress, pi_stress, pmqtest, ptsematest, rt-migrate-test, sendme, signaltest, sigwaittest, svsematest
+description: real-time tests cyclicdeadline, cyclictest, deadline_test, pip_stress, pi_stress, pmqtest, ptsematest, rt-migrate-test, signaltest, sigwaittest, ssdd, svsematest, queuelat
 confinement: strict
 grade: stable
 apps:
+    cyclicdeadline:
+        command: usr/local/bin/cyclicdeadline
+        plugs: [ process-control ]
     cyclictest:
         command: usr/local/bin/cyclictest
+        plugs: [ process-control ]
+    deadline-test:
+        command: usr/local/bin/deadline_test
         plugs: [ process-control ]
     pip-stress:
         command: usr/local/bin/pip_stress
@@ -40,38 +46,44 @@ apps:
     rt-migrate-test:
         command: usr/local/bin/rt-migrate-test
         plugs: [ process-control ]
-    sendme:
-        command: usr/local/bin/sendme
-        plugs: [ process-control ]
     signaltest:
         command: usr/local/bin/signaltest
         plugs: [ process-control ]
     sigwaittest:
         command: usr/local/bin/sigwaittest
         plugs: [ process-control ]
+    ssdd:
+        command: usr/local/bin/ssdd
+        plugs: [ process-control ]
     svsematest:
         command: usr/local/bin/svsematest
+        plugs: [ process-control ]
+    queuelat:
+        command: usr/local/bin/queuelat
         plugs: [ process-control ]
 parts:
     realtime-tests:
         plugin: make
         source: https://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git
-        source-branch: v1.3
+        source-branch: v1.4
         build-packages:
             - build-essential
             - libnuma-dev
             - python3
         prime:
+            - usr/local/bin/cyclicdeadline
             - usr/local/bin/cyclictest
+            - usr/local/bin/deadline_test
             - usr/local/bin/hackbench
             - usr/local/bin/pip_stress
             - usr/local/bin/pi_stress
             - usr/local/bin/pmqtest
             - usr/local/bin/ptsematest
             - usr/local/bin/rt-migrate-test
-            - usr/local/bin/sendme
             - usr/local/bin/signaltest
             - usr/local/bin/sigwaittest
             - usr/local/bin/svsematest
+            - usr/local/bin/ssdd
+            - usr/local/bin/queuelat
 
 # vim: set ai et sts=4 tabstop=4 sw=4:
