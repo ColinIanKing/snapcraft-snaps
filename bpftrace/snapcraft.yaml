@@ -5,6 +5,7 @@ description: 'BPFtrace is a high-level tracing language for Linux enhanced Berke
 
 confinement: strict
 grade: stable
+base: core18
 
 parts:
     bpftrace:
